@@ -1,21 +1,23 @@
-<div class="recipe-detail">
-  <h2>{{ recipe.nombre }}</h2>
-  <img
-    class="recipe-detail-img"
-    [src]="recipe.imagen"
-    alt="{{ recipe.imagen }}"
-  />
-  <p><strong>Porciones:</strong> {{ recipe.porciones }}</p>
-  <p><strong>Tiempo:</strong> {{ recipe.tiempo_minutos }} min</p>
-  <h3>Ingredientes</h3>
-  <app-ingredient-list
-    [ingredients]="recipe.ingredientes"
-  ></app-ingredient-list>
+<div class="recipe-detail card">
+  <div class="card-body">
+    <h2>{{ recipe.nombre }}</h2>
+    <img
+      class="recipe-detail-img"
+      [src]="recipe.imagen"
+      alt="{{ recipe.imagen }}"
+    />
+    <p><strong>Porciones:</strong> {{ recipe.porciones }}</p>
+    <p><strong>Tiempo:</strong> {{ recipe.tiempo_minutos }} min</p>
+    <h3>Ingredientes</h3>
+    <app-ingredient-list
+      [ingredients]="recipe.ingredientes"
+    ></app-ingredient-list>
 
-  <h3>Pasos</h3>
-  <ol>
-    <li *ngFor="let step of recipe.pasos">
-      {{ step }}
-    </li>
-  </ol>
+    <h3>Pasos</h3>
+    <ol>
+      <li *ngFor="let step of recipe.pasos">
+        {{ step }}
+      </li>
+    </ol>
+  </div>
 </div>

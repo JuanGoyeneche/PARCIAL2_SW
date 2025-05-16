@@ -1,31 +1,33 @@
-<div>
-  <div>
-    <div *ngIf="selected">
-      <app-recipe-detail [recipe]="selectedRecipe"></app-recipe-detail>
-    </div>
-    <table>
-      <thead>
-        <tr>
-          <th>Receta</th>
-          <th>Imagen</th>
-          <th>Porciones</th>
-          <th>Tiempo</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let recipe of recipes" (click)="onSelect(recipe)">
-          <td>{{ recipe.nombre }}</td>
-          <td>
-            <img
-              class="recipe-img"
-              [src]="recipe.imagen"
-              alt="{{ recipe.imagen }}"
-            />
-          </td>
-          <td>{{ recipe.porciones }}</td>
-          <td>{{ recipe.tiempo_minutos }} min</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<div class="container mt-4">
+  <h2>Recetas Uniandes</h2>
+
+  <table class="table table-hover table-bordered mt-3">
+    <thead class="table-dark">
+      <tr>
+        <th>Receta</th>
+        <th>Imagen</th>
+        <th>Porciones</th>
+        <th>Tiempo</th>      
+        <th>Acción</th>  
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let recipe of recipes">
+        <td>{{ recipe.nombre }}</td>
+        <td>
+          <img
+            class="img-thumbnail"
+            [src]="recipe.imagen"
+            [alt]="recipe.nombre"
+            width="100"
+          />
+        </td>
+        <td>{{ recipe.porciones }}</td>
+        <td>{{ recipe.tiempo_minutos }} min</td>  
+        <td>
+          <button type="button" class="btn btn-primary" (click)="onSelect(recipe)">Ver la receta</button>
+        </td>       
+      </tr>
+    </tbody>
+  </table>
 </div>
